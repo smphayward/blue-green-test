@@ -31,7 +31,7 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - ./www-server-a:/var/www/html/
+      - ./www-server-b:/var/www/html/
     restart: unless-stopped
 
 
