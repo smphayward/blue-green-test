@@ -23,8 +23,7 @@ services:
     volumes:
       - ./www-server-a:/var/www/html/
     restart: unless-stopped
-    depends_on:
-      - db
+
 
   server-b:
     container_name: apache
@@ -34,8 +33,7 @@ services:
     volumes:
       - ./www-server-a:/var/www/html/
     restart: unless-stopped
-    depends_on:
-      - db
+
 
 
 
