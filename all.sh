@@ -39,3 +39,14 @@ sudo docker compose up -d
 
 echo
 echo
+
+echo "███    ██  ██████  ██ ███    ██ ██   ██ "
+echo "████   ██ ██       ██ ████   ██  ██ ██  "
+echo "██ ██  ██ ██   ███ ██ ██ ██  ██   ███   "
+echo "██  ██ ██ ██    ██ ██ ██  ██ ██  ██ ██  "
+echo "██   ████  ██████  ██ ██   ████ ██   ██ "
+echo
+sudo docker restart nginx
+
+echo
+echo
