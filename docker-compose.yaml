@@ -16,7 +16,7 @@ services:
   # Why? Because we have to install plugins
 
   server-a:
-    container_name: apache
+    container_name: server-a
     image: blue-green-test/apache-php
     ports:
       - "8080:80"
@@ -26,7 +26,7 @@ services:
 
 
   server-b:
-    container_name: apache
+    container_name: server-b
     image: blue-green-test/apache-php
     ports:
       - "8081:80"
