@@ -41,6 +41,7 @@ services:
   # ██   ████  ██████  ██ ██   ████ ██   ██ 
 
   nginx:
+    container_name: nginx
     image: nginx
     # volumes:
     # - ./templates:/etc/nginx/templates
