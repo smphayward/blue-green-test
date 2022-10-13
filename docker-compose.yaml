@@ -1,0 +1,42 @@
+# https://gist.github.com/jcavat/2ed51c6371b9b488d6a940ba1049189b
+# https://hub.docker.com/_/mysql
+
+version: '3.7'
+
+services:
+
+
+  #  █████  ██████   █████   ██████ ██   ██ ███████ 
+  # ██   ██ ██   ██ ██   ██ ██      ██   ██ ██      
+  # ███████ ██████  ███████ ██      ███████ █████   
+  # ██   ██ ██      ██   ██ ██      ██   ██ ██      
+  # ██   ██ ██      ██   ██  ██████ ██   ██ ███████ 
+
+  # Made from Dockerfile in local directory
+  # Why? Because we have to install plugins
+
+  server-a:
+    container_name: apache
+    image: ko/apache-php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www-server-a:/var/www/html/
+    restart: unless-stopped
+    depends_on:
+      - db
+
+  server-b:
+    container_name: apache
+    image: ko/apache-php
+    ports:
+      - "8081:80"
+    volumes:
+      - ./www-server-a:/var/www/html/
+    restart: unless-stopped
+    depends_on:
+      - db
+
+
+
+
