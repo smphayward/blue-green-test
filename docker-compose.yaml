@@ -34,7 +34,20 @@ services:
       - ./www-server-b:/var/www/html/
     restart: unless-stopped
 
+  # ███    ██  ██████  ██ ███    ██ ██   ██ 
+  # ████   ██ ██       ██ ████   ██  ██ ██  
+  # ██ ██  ██ ██   ███ ██ ██ ██  ██   ███   
+  # ██  ██ ██ ██    ██ ██ ██  ██ ██  ██ ██  
+  # ██   ████  ██████  ██ ██   ████ ██   ██ 
 
-
+  nginx:
+    image: nginx
+    # volumes:
+    # - ./templates:/etc/nginx/templates
+    ports:
+    - "80:80"
+    # environment:
+    # - NGINX_HOST=foobar.com
+    # - NGINX_PORT=80
 
 
