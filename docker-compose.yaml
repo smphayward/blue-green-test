@@ -47,6 +47,7 @@ services:
     # - ./templates:/etc/nginx/templates
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/blue-green:/etc/nginx/blue-green:ro
     ports:
     - "80:80"
     # environment:

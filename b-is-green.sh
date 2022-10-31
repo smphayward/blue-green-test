@@ -1,3 +1,2 @@
 #! /bin/bash
-touch b-is-green.txt
-rm -f a-is-green.txt
+touch ./nginx/blue-green/b-is-green.txt
