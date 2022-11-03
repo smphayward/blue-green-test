@@ -17,6 +17,7 @@ services:
 
   server-a-0:
     container_name: server-a-0
+    hostname: server-a-0
     image: blue-green-test/apache-php
     ports:
       - "8080:80"
@@ -29,6 +30,7 @@ services:
 
   server-a-1:
     container_name: server-a-1
+    hostname: server-a-1
     image: blue-green-test/apache-php
     ports:
       - "8081:80"
@@ -41,6 +43,7 @@ services:
 
   server-a-2:
     container_name: server-a-2
+    hostname: server-a-2
     image: blue-green-test/apache-php
     ports:
       - "8082:80"
@@ -53,6 +56,7 @@ services:
 
   server-b-0:
     container_name: server-b-0
+    hostname: server-b-0
     image: blue-green-test/apache-php
     ports:
       - "8090:80"
@@ -66,6 +70,7 @@ services:
 
   server-b-1:
     container_name: server-b-1
+    hostname: server-b-1
     image: blue-green-test/apache-php
     ports:
       - "8091:80"
@@ -78,6 +83,7 @@ services:
 
   server-b-2:
     container_name: server-b-2
+    hostname: server-b-2
     image: blue-green-test/apache-php
     ports:
       - "8092:80"
