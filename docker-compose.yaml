@@ -115,6 +115,7 @@ services:
 
 networks:
   blue-green-network:
+    name: blue-green-network
     driver: bridge
     ipam:
      config:
