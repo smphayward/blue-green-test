@@ -1,5 +1,9 @@
 <?php
 header('Content-Type: application/json');
+
+if (!isset($myObj)) 
+    $myObj = new stdClass();
+
 $myObj->removeAddress = $_SERVER['REMOTE_ADDR'];
 $myObj->requesterAddress = $_SERVER['HTTP_INK_REQUESTER_IP'];
 $myObj->requestHost = $_SERVER['HTTP_INK_REQUEST_HOST'];
