@@ -23,7 +23,9 @@ services:
     volumes:
       - ./www-server-a:/var/www/html/
     restart: unless-stopped
-
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.1.1
 
   server-b:
     container_name: server-b
@@ -33,6 +35,9 @@ services:
     volumes:
       - ./www-server-b:/var/www/html/
     restart: unless-stopped
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.2.1
 
   # ███    ██  ██████  ██ ███    ██ ██   ██ 
   # ████   ██ ██       ██ ████   ██  ██ ██  
@@ -54,5 +59,14 @@ services:
     # - NGINX_HOST=foobar.com
     # - NGINX_PORT=80
     restart: unless-stopped
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.0.2
 
-
+networks:
+  blue-green-network:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.18.0.0/16
+         gateway: 172.18.0.1
