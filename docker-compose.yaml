@@ -31,7 +31,7 @@ services:
     container_name: server-a-1
     image: blue-green-test/apache-php
     ports:
-      - "8080:80"
+      - "8081:80"
     volumes:
       - ./www-server-a:/var/www/html/:ro
     restart: unless-stopped
@@ -43,7 +43,7 @@ services:
     container_name: server-a-2
     image: blue-green-test/apache-php
     ports:
-      - "8080:80"
+      - "8082:80"
     volumes:
       - ./www-server-a:/var/www/html/:ro
     restart: unless-stopped
@@ -55,7 +55,7 @@ services:
     container_name: server-b-0
     image: blue-green-test/apache-php
     ports:
-      - "8081:80"
+      - "8090:80"
     volumes:
       - ./www-server-b:/var/www/html/:ro
     restart: unless-stopped
@@ -68,7 +68,7 @@ services:
     container_name: server-b-1
     image: blue-green-test/apache-php
     ports:
-      - "8081:80"
+      - "8091:80"
     volumes:
       - ./www-server-b:/var/www/html/:ro
     restart: unless-stopped
@@ -80,7 +80,7 @@ services:
     container_name: server-b-2
     image: blue-green-test/apache-php
     ports:
-      - "8081:80"
+      - "8092:80"
     volumes:
       - ./www-server-b:/var/www/html/:ro
     restart: unless-stopped
