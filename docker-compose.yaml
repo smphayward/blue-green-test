@@ -15,29 +15,79 @@ services:
   # Made from Dockerfile in local directory
   # Why? Because we have to install plugins
 
-  server-a:
-    container_name: server-a
+  server-a-0:
+    container_name: server-a-0
     image: blue-green-test/apache-php
     ports:
       - "8080:80"
     volumes:
-      - ./www-server-a:/var/www/html/
+      - ./www-server-a:/var/www/html/:ro
+    restart: unless-stopped
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.1.0
+
+  server-a-1:
+    container_name: server-a-1
+    image: blue-green-test/apache-php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www-server-a:/var/www/html/:ro
     restart: unless-stopped
     networks:
       blue-green-network:
         ipv4_address: 172.18.1.1
 
-  server-b:
-    container_name: server-b
+  server-a-2:
+    container_name: server-a-2
+    image: blue-green-test/apache-php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www-server-a:/var/www/html/:ro
+    restart: unless-stopped
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.1.2
+
+  server-b-0:
+    container_name: server-b-0
     image: blue-green-test/apache-php
     ports:
       - "8081:80"
     volumes:
-      - ./www-server-b:/var/www/html/
+      - ./www-server-b:/var/www/html/:ro
+    restart: unless-stopped
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.2.0
+
+
+  server-b-1:
+    container_name: server-b-1
+    image: blue-green-test/apache-php
+    ports:
+      - "8081:80"
+    volumes:
+      - ./www-server-b:/var/www/html/:ro
     restart: unless-stopped
     networks:
       blue-green-network:
         ipv4_address: 172.18.2.1
+
+  server-b-2:
+    container_name: server-b-2
+    image: blue-green-test/apache-php
+    ports:
+      - "8081:80"
+    volumes:
+      - ./www-server-b:/var/www/html/:ro
+    restart: unless-stopped
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.2.2
+
 
   # ███    ██  ██████  ██ ███    ██ ██   ██ 
   # ████   ██ ██       ██ ████   ██  ██ ██  
