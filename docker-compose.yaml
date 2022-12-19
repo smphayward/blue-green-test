@@ -124,8 +124,9 @@ services:
     environment:
     - REDIS_HOSTS=redis-a:redis-a:6379,redis-b:redis-b:6379
     - URL_PREFIX=/redis
-    ports:
-    - "8081:8081"
+    # Exposed through nginx
+    # ports:
+    # - "8081:8081"
 
 
   # ███    ██  ██████  ██ ███    ██ ██   ██ 
