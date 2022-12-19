@@ -127,7 +127,7 @@ services:
     hostname: redis-commander
     image: rediscommander/redis-commander:latest
     environment:
-    - REDIS_HOSTS=redis-a-internal:redis-a:6379,redis-b-internal:redis-b:6379,nginx-blue-green:nginx:6379,nginx-a:nginx:16379,nginx-b:nginx:26379
+    - REDIS_HOSTS=redis-a-internal:redis-a:6379,redis-b-internal:redis-b:6379,nginx-currently-green:nginx:6379,nginx-a:nginx:16379,nginx-b:nginx:26379
     - URL_PREFIX=/redis
     # Exposed through nginx
     # ports:
