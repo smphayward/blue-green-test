@@ -105,7 +105,7 @@ services:
     hostname: redis-a
     image: redis
     ports:
-    - "6379:6379"
+    - "16379:6379"
     restart: unless-stopped
     networks:
       blue-green-network:
@@ -116,7 +116,7 @@ services:
     hostname: redis-b
     image: redis
     ports:
-    - "16379:6379"
+    - "26379:6379"
     restart: unless-stopped
     networks:
       blue-green-network:
@@ -155,6 +155,7 @@ services:
       - ./nginx/logs:/var/log/nginx
     ports:
     - "80:80"
+    - "6379:6379"
     # environment:
     # - NGINX_HOST=foobar.com
     # - NGINX_PORT=80
