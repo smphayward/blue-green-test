@@ -104,8 +104,8 @@ services:
     container_name: redis-a
     hostname: redis-a
     image: redis
-    ports:
-    - "16379:6379"
+    # ports:
+    # - "16379:6379"
     restart: unless-stopped
     networks:
       blue-green-network:
@@ -115,8 +115,8 @@ services:
     container_name: redis-b
     hostname: redis-b
     image: redis
-    ports:
-    - "26379:6379"
+    # ports:
+    # - "26379:6379"
     restart: unless-stopped
     networks:
       blue-green-network:
@@ -127,7 +127,7 @@ services:
     hostname: redis-commander
     image: rediscommander/redis-commander:latest
     environment:
-    - REDIS_HOSTS=redis-a:redis-a:6379,redis-b:redis-b:6379,nginx:nginx:6379
+    - REDIS_HOSTS=redis-a:redis-a:6379,redis-b:redis-b:6379,nginx-blue-green:nginx:6379,nginx-a:nginx:16379,nginx-b:nginx:26379
     - URL_PREFIX=/redis
     # Exposed through nginx
     # ports:
