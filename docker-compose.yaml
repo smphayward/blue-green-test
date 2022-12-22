@@ -139,7 +139,7 @@ services:
     container_name: redis-sentinel-a-1
     hostname: redis-sentinel-a-1
     image: redis
-    command: bash -c "chown redis:redis /etc/redis/sentinel.conf && redis-server /etc/reids/sentinel.conf --sentinel"
+    command: bash -c "chown redis:redis /etc/redis/sentinel.conf && redis-server /etc/redis/sentinel.conf --sentinel"
     volumes:
       - "./redis/sentinel-a.conf:/etc/redis/sentinel.conf"
     ports:
