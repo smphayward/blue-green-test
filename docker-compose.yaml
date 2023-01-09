@@ -207,7 +207,7 @@ services:
     volumes:
       - "./redis/sentinel-b.conf:/etc/redis/sentinel.conf"
     ports:
-    - "26379:26379"
+    - "36379:26379"
     restart: unless-stopped
     networks:
       blue-green-network:
@@ -221,7 +221,7 @@ services:
     volumes:
       - "./redis/sentinel-b.conf:/etc/redis/sentinel.conf"
     ports:
-    - "26380:26379"
+    - "36380:26379"
     restart: unless-stopped
     networks:
       blue-green-network:
