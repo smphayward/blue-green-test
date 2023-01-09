@@ -190,7 +190,8 @@ services:
     hostname: redis-commander
     image: rediscommander/redis-commander:latest
     environment:
-    - REDIS_HOSTS=redis-a-1-internal:redis-a-1:6379,redis-a-2-internal:redis-a-2:6379,redis-a-3-internal:redis-a-3:6379,redis-b-internal:redis-b:6379,nginx-currently-green:nginx:6379,nginx-a:nginx:16379,nginx-b:nginx:26379
+    #- REDIS_HOSTS=redis-a-1-internal:redis-a-1:6379,redis-a-2-internal:redis-a-2:6379,redis-a-3-internal:redis-a-3:6379,redis-b-internal:redis-b:6379,nginx-currently-green:nginx:6379,nginx-a:nginx:16379,nginx-b:nginx:26379
+    - SENTINELS=redis-sentinel-a-1:26379
     - URL_PREFIX=/redis
     # Exposed through nginx
     # ports:
