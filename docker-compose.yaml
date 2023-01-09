@@ -199,13 +199,41 @@ services:
       blue-green-network:
         ipv4_address: 172.18.4.3
 
+  redis-sentinal-b-1:
+    container_name: redis-sentinel-b-1
+    hostname: redis-sentinel-b-1
+    image: redis
+    command: bash -c "chown redis:redis /etc/redis/sentinel.conf && redis-server /etc/redis/sentinel.conf --sentinel"
+    volumes:
+      - "./redis/sentinel-b.conf:/etc/redis/sentinel.conf"
+    ports:
+    - "26379:26379"
+    restart: unless-stopped
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.4.100    
+
+  redis-sentinal-b-2:
+    container_name: redis-sentinel-b-2
+    hostname: redis-sentinel-b-2
+    image: redis
+    command: bash -c "chown redis:redis /etc/redis/sentinel.conf && redis-server /etc/redis/sentinel.conf --sentinel"
+    volumes:
+      - "./redis/sentinel-b.conf:/etc/redis/sentinel.conf"
+    ports:
+    - "26380:26379"
+    restart: unless-stopped
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.4.101   
+
   redis-commander:
     container_name: redis-commander
     hostname: redis-commander
     image: rediscommander/redis-commander:latest
     environment:
     #- REDIS_HOSTS=redis-a-1-internal:redis-a-1:6379,redis-a-2-internal:redis-a-2:6379,redis-a-3-internal:redis-a-3:6379,redis-b-internal:redis-b:6379,nginx-currently-green:nginx:6379,nginx-a:nginx:16379,nginx-b:nginx:26379
-    - SENTINELS=redis-sentinel-a-1:26379,redis-sentinel-a-2:26379
+    - SENTINELS=redis-sentinel-a-1:26379,redis-sentinel-a-2:26379,redis-sentinel-b-1:26379,redis-sentinel-b-2:26379
     - REDIS_HOSTS=redis-a-1-internal:redis-a-1:6379,redis-a-2-internal:redis-a-2:6379,redis-a-3-internal:redis-a-3:6379
     - URL_PREFIX=/redis
     # Exposed through nginx
