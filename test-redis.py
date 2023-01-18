@@ -1,5 +1,6 @@
 from redis.sentinel import Sentinel
 import random
+import time
 
 # with IP based connections, a list of known node IP addresses is constructed
 # to allow connection even if any one of the nodes in the list is unavailable.
@@ -42,3 +43,5 @@ while True:
     print(master.set(key, value))
     print("Getting value from " + key)
     print(master.get(key))
+    print()
+    time.sleep(1) # Sleep for 1 second
