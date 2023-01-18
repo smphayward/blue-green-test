@@ -1,4 +1,5 @@
 from redis.sentinel import Sentinel
+import random
 
 # with IP based connections, a list of known node IP addresses is constructed
 # to allow connection even if any one of the nodes in the list is unavailable.
@@ -11,15 +12,33 @@ sentinel_list = [
 # change this to the db name you want to connect
 db_name = 'master-a'
 
+print("Creating Sentinel object from sentinel list...")
 sentinel = Sentinel(sentinel_list, socket_timeout=0.1)
+print()
+
 print("Redis master:")
 print(sentinel.discover_master(db_name))
+print()
+
 print("Redis slaves:")
 print(sentinel.discover_slaves(db_name))
+print()
 
-r = sentinel.master_for(db_name, socket_timeout=0.1)
+print("Connecting to" + db_name + "...")
+master = sentinel.master_for(db_name, socket_timeout=0.1)
+print()
 
-# set key "foo" to value "bar"
-print(r.set('foo', 'bar'))
-# set value for key "foo"
-print(r.get('foo'))
+
+keys = ["foo", "bar", "baz", "quux", "waldo", "fred"]
+
+while True:
+  print()
+  print("--- press CTRL+C to stop the test ---")
+  print()
+
+  for key in keys:
+    value = random.randint(1000,9999)
+    print("Setting " + key + " to value " + value)
+    print(master.set(key, value))
+    print("Getting value from " + key)
+    print(master.get(key))
