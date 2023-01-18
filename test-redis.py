@@ -38,7 +38,7 @@ while True:
 
   for key in keys:
     value = random.randint(1000,9999)
-    print("Setting " + key + " to value " + value)
+    print("Setting " + key + " to value " + str(value))
     print(master.set(key, value))
     print("Getting value from " + key)
     print(master.get(key))
