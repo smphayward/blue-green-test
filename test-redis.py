@@ -9,9 +9,14 @@ sentinel_list = [
 ]
 
 # change this to the db name you want to connect
-db_name = 'db1'
+db_name = 'master-a'
 
 sentinel = Sentinel(sentinel_list, socket_timeout=0.1)
+print("Redis master:")
+print(sentinel.discover_master(db_name))
+print("Redis slaves:")
+print(sentinel.discover_slaves(db_name))
+
 r = sentinel.master_for(db_name, socket_timeout=0.1)
 
 # set key "foo" to value "bar"
