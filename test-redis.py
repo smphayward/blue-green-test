@@ -15,6 +15,6 @@ sentinel = Sentinel(sentinel_list, socket_timeout=0.1)
 r = sentinel.master_for(db_name, socket_timeout=0.1)
 
 # set key "foo" to value "bar"
-print r.set('foo', 'bar')
+print(r.set('foo', 'bar'))
 # set value for key "foo"
-print r.get('foo')
+print(r.get('foo'))

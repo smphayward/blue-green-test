@@ -1,1 +1,1 @@
-python test-redis.py
+python3 test-redis.py
