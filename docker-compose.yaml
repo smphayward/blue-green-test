@@ -107,9 +107,9 @@ services:
     image: redis
     environment:
       - REDIS_HOST=192.168.2.90
-      - REDIS_PORT=36379
+      - REDIS_PORT=56379
     ports:
-    - "36379:36379"
+    - "56379:56379"
     restart: unless-stopped
     networks:
       blue-green-network:
