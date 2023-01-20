@@ -112,7 +112,7 @@ services:
     #   - REDIS_HOST=192.168.2.90
     #   - REDIS_PORT=56379
     ports:
-    - "56379:56379"
+    - "6378:6378"
     restart: unless-stopped
     networks:
       blue-green-network:
