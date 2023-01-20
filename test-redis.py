@@ -36,9 +36,11 @@ while True:
   print()
   print("--- press CTRL+C to stop the test ---")
   print()
+  print("Info")
+  print(master.execute_command("INFO"))
 
   for key in keys:
-    print("Key")
+    print("Key: " + key)
     try:
       value = random.randint(1000,9999)
       print("Setting " + key + " to value " + str(value))
