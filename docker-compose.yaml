@@ -106,11 +106,11 @@ services:
     hostname: redis-a-0
     image: redis
     # command: bash -c "chown redis:redis /etc/redis/redis.conf && redis-server /etc/redis/redis.conf --port 6378"
-    command: "redis-server --port 6378 --bind 192.168.2.90 --bind-source-addr 192.168.2.90" # -h 192.168.2.90"
+    command: "redis-server --port 6378 --bind-source-addr 192.168.2.90" # -h 192.168.2.90"
     # volumes:
     #   - "./redis/redis-a-1.conf:/etc/redis/redis.conf"    
-    # environment:
-    #   - REDIS_HOST=192.168.2.90
+    environment:
+      - REDIS_HOST=192.168.2.90
     #   - REDIS_PORT=56379
     ports:
     - "6378:6378"
@@ -124,6 +124,8 @@ services:
     hostname: redis-a-1
     image: redis
     command: "redis-server --port 6379 --bind-source-addr 192.168.2.90"    
+    environment:
+      - REDIS_HOST=192.168.2.90
     ports:
     - "6379:6379"
     restart: unless-stopped
@@ -137,6 +139,8 @@ services:
     image: redis
     #command: redis-server --slaveof redis-a-1 6379
     command: "redis-server --port 6380 --bind-source-addr 192.168.2.90 --slaveof 192.168.2.90 6379"        
+    environment:
+      - REDIS_HOST=192.168.2.90
     ports:
     - "6380:6380"
     restart: unless-stopped
@@ -150,6 +154,8 @@ services:
     image: redis
     #command: redis-server --slaveof redis-a-1 6379
     command: "redis-server --port 6381 --bind-source-addr 192.168.2.90 --slaveof 192.168.2.90 6379"        
+    environment:
+      - REDIS_HOST=192.168.2.90
     ports:
     - "6381:6381"
     restart: unless-stopped
