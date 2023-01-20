@@ -298,7 +298,7 @@ services:
       - ./nginx/logs:/var/log/nginx
     ports:
     - "80:80"
-    - "6379:6379"
+    #- "6379:6379"
     # environment:
     # - NGINX_HOST=foobar.com
     # - NGINX_PORT=80
