@@ -104,8 +104,8 @@ services:
     container_name: redis-a-1
     hostname: redis-a-1
     image: redis
-    # ports:
-    # - "16379:6379"
+    ports:
+    - "16379:6379"
     restart: unless-stopped
     networks:
       blue-green-network:
@@ -115,9 +115,10 @@ services:
     container_name: redis-a-2
     hostname: redis-a-2
     image: redis
-    command: redis-server --slaveof redis-a-1 6379
-    # ports:
-    # - "16379:6379"
+    #command: redis-server --slaveof redis-a-1 6379
+    command: redis-server --slaveof 192.168.2.90 16379
+    ports:
+    - "16380:6379"
     restart: unless-stopped
     networks:
       blue-green-network:
@@ -127,9 +128,10 @@ services:
     container_name: redis-a-3
     hostname: redis-a-3
     image: redis
-    command: redis-server --slaveof redis-a-1 6379
-    # ports:
-    # - "16379:6379"
+    #command: redis-server --slaveof redis-a-1 6379
+    command: redis-server --slaveof 192.168.2.90 16379
+    ports:
+    - "16381:6379"
     restart: unless-stopped
     networks:
       blue-green-network:

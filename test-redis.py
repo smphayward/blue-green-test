@@ -37,7 +37,7 @@ while True:
   print("--- press CTRL+C to stop the test ---")
   print()
   print("Info")
-  print(master.execute_command("INFO"))
+  print(master.execute_command("CLIENT INFO"))
 
   for key in keys:
     print("Key: " + key)
