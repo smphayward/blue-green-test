@@ -200,68 +200,68 @@ services:
       blue-green-network:
         ipv4_address: 172.18.3.103
 
-  redis-b-1:
-    container_name: redis-b-1
-    hostname: redis-b-1
-    image: redis
-    # ports:
-    # - "26379:6379"
-    restart: unless-stopped
-    networks:
-      blue-green-network:
-        ipv4_address: 172.18.4.1    
+  # redis-b-1:
+  #   container_name: redis-b-1
+  #   hostname: redis-b-1
+  #   image: redis
+  #   # ports:
+  #   # - "26379:6379"
+  #   restart: unless-stopped
+  #   networks:
+  #     blue-green-network:
+  #       ipv4_address: 172.18.4.1    
 
-  redis-b-2:
-    container_name: redis-b-2
-    hostname: redis-b-2
-    image: redis
-    command: redis-server --slaveof redis-b-1 6379
-    # ports:
-    # - "26379:6379"
-    restart: unless-stopped
-    networks:
-      blue-green-network:
-        ipv4_address: 172.18.4.2
+  # redis-b-2:
+  #   container_name: redis-b-2
+  #   hostname: redis-b-2
+  #   image: redis
+  #   command: redis-server --slaveof redis-b-1 6379
+  #   # ports:
+  #   # - "26379:6379"
+  #   restart: unless-stopped
+  #   networks:
+  #     blue-green-network:
+  #       ipv4_address: 172.18.4.2
 
-  redis-b-3:
-    container_name: redis-b-3
-    hostname: redis-b-3
-    image: redis
-    command: redis-server --slaveof redis-b-1 6379
-    # ports:
-    # - "26379:6379"
-    restart: unless-stopped
-    networks:
-      blue-green-network:
-        ipv4_address: 172.18.4.3
+  # redis-b-3:
+  #   container_name: redis-b-3
+  #   hostname: redis-b-3
+  #   image: redis
+  #   command: redis-server --slaveof redis-b-1 6379
+  #   # ports:
+  #   # - "26379:6379"
+  #   restart: unless-stopped
+  #   networks:
+  #     blue-green-network:
+  #       ipv4_address: 172.18.4.3
 
-  redis-sentinal-b-1:
-    container_name: redis-sentinel-b-1
-    hostname: redis-sentinel-b-1
-    image: redis
-    command: bash -c "chown redis:redis /etc/redis/sentinel.conf && redis-server /etc/redis/sentinel.conf --sentinel"
-    volumes:
-      - "./redis/sentinel-b.conf:/etc/redis/sentinel.conf"
-    ports:
-    - "36379:26379"
-    restart: unless-stopped
-    networks:
-      blue-green-network:
-        ipv4_address: 172.18.4.100    
+  # redis-sentinal-b-1:
+  #   container_name: redis-sentinel-b-1
+  #   hostname: redis-sentinel-b-1
+  #   image: redis
+  #   command: bash -c "chown redis:redis /etc/redis/sentinel.conf && redis-server /etc/redis/sentinel.conf --sentinel"
+  #   volumes:
+  #     - "./redis/sentinel-b.conf:/etc/redis/sentinel.conf"
+  #   ports:
+  #   - "36379:26379"
+  #   restart: unless-stopped
+  #   networks:
+  #     blue-green-network:
+  #       ipv4_address: 172.18.4.100    
 
-  redis-sentinal-b-2:
-    container_name: redis-sentinel-b-2
-    hostname: redis-sentinel-b-2
-    image: redis
-    command: bash -c "chown redis:redis /etc/redis/sentinel.conf && redis-server /etc/redis/sentinel.conf --sentinel"
-    volumes:
-      - "./redis/sentinel-b.conf:/etc/redis/sentinel.conf"
-    ports:
-    - "36380:26379"
-    restart: unless-stopped
-    networks:
-      blue-green-network:
-        ipv4_address: 172.18.4.101   
+  # redis-sentinal-b-2:
+  #   container_name: redis-sentinel-b-2
+  #   hostname: redis-sentinel-b-2
+  #   image: redis
+  #   command: bash -c "chown redis:redis /etc/redis/sentinel.conf && redis-server /etc/redis/sentinel.conf --sentinel"
+  #   volumes:
+  #     - "./redis/sentinel-b.conf:/etc/redis/sentinel.conf"
+  #   ports:
+  #   - "36380:26379"
+  #   restart: unless-stopped
+  #   networks:
+  #     blue-green-network:
+  #       ipv4_address: 172.18.4.101   
 
   redis-commander:
     container_name: redis-commander
