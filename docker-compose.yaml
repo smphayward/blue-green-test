@@ -105,7 +105,7 @@ services:
     container_name: redis-a-0
     hostname: redis-a-0
     image: redis
-    command: bash -c "chown redis:redis /etc/redis/redis.conf && redis-server /etc/redis/redis.conf"
+    command: bash -c "chown redis:redis /etc/redis/redis.conf && redis-server /etc/redis/redis.conf --port 6378"
     volumes:
       - "./redis/redis-a-1.conf:/etc/redis/redis.conf"    
     # environment:
