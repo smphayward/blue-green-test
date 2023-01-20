@@ -137,7 +137,6 @@ services:
     container_name: redis-a-2
     hostname: redis-a-2
     image: redis
-    #command: redis-server --slaveof redis-a-1 6379
     command: "redis-server --port 6380 --bind-source-addr 192.168.2.90 --slaveof 192.168.2.90 6379"        
     environment:
       - REDIS_HOST=192.168.2.90
@@ -152,7 +151,6 @@ services:
     container_name: redis-a-3
     hostname: redis-a-3
     image: redis
-    #command: redis-server --slaveof redis-a-1 6379
     command: "redis-server --port 6381 --bind-source-addr 192.168.2.90 --slaveof 192.168.2.90 6379"        
     environment:
       - REDIS_HOST=192.168.2.90
