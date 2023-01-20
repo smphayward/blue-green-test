@@ -100,6 +100,21 @@ services:
 # ██   ██ ██      ██   ██ ██      ██ 
 # ██   ██ ███████ ██████  ██ ███████ 
 
+
+  redis-a-0:
+    container_name: redis-a-0
+    hostname: redis-a-0
+    image: redis
+    environment:
+      - REDIS_HOST=192.168.2.90
+      - REDIS_PORT=36379
+    ports:
+    - "36379:36379"
+    restart: unless-stopped
+    networks:
+      blue-green-network:
+        ipv4_address: 172.18.3.250
+
   redis-a-1:
     container_name: redis-a-1
     hostname: redis-a-1
@@ -109,14 +124,14 @@ services:
     restart: unless-stopped
     networks:
       blue-green-network:
-        ipv4_address: 172.18.3.1    
+        ipv4_address: 172.18.3.1
 
   redis-a-2:
     container_name: redis-a-2
     hostname: redis-a-2
     image: redis
     #command: redis-server --slaveof redis-a-1 6379
-    command: redis-server --slaveof 192.168.2.90 16379
+    command: redis-server --slaveof 192.168.2.90 16379 
     ports:
     - "16380:6379"
     restart: unless-stopped
